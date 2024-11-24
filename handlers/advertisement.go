@@ -1,6 +1,10 @@
 package handlers
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
+
+	"github.com/gin-gonic/gin"
+)
 
 type Listing struct {
 	ID          int     `json:"id"`
@@ -11,7 +15,7 @@ type Listing struct {
 }
 
 func GetListing(c *gin.Context) {
-
+	fmt.Println("GetListing")
 }
 
 func CreateListing(c *gin.Context) {
