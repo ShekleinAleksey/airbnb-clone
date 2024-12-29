@@ -1,12 +1,12 @@
 package handlers
 
 import (
-	"fmt"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-type Listing struct {
+type Ad struct {
 	ID          int     `json:"id"`
 	Title       string  `json:"title"`
 	Description string  `json:"description"`
@@ -14,18 +14,32 @@ type Listing struct {
 	Price       float64 `json:"price"`
 }
 
-func GetListing(c *gin.Context) {
-	fmt.Println("GetListing")
+func GetAds(c *gin.Context) {
+	var ads []Ad
+
+	c.JSON(http.StatusOK, ads)
 }
 
-func CreateListing(c *gin.Context) {
+func CreateAd(c *gin.Context) {
+	var ad Ad
 
+	if err := c.ShouldBindJSON(&ad); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input"})
+		return
+	}
+
+	c.JSON(http.StatusCreated, ad)
 }
 
-func UpdateListing(c *gin.Context) {
+func UpdateAd(c *gin.Context) {
+	// id := c.Param("id")
+	// var ad Ad
 
+	// c.JSON(http.StatusOK, ad)
 }
 
-func DeleteListing(c *gin.Context) {
+func DeleteAd(c *gin.Context) {
+	// id := c.Param("id")
 
+	// c.Status(http.StatusNoContent)
 }

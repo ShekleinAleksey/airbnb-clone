@@ -8,10 +8,10 @@ import (
 
 func main() {
 	r := gin.Default()
-	r.GET("/listings", handlers.GetListing)
-	r.POST("/listings", handlers.CreateListing)
-	r.PUT("/listings/:id", handlers.UpdateListing)
-	r.DELETE("listings/:id", handlers.DeleteListing)
+	r.GET("/ads", handlers.GetAds)
+	r.POST("/ads", handlers.CreateAd)
+	r.PUT("/ads/:id", handlers.UpdateAd)
+	r.DELETE("ads/:id", handlers.DeleteAd)
 
 	r.Run(":8080")
 }
